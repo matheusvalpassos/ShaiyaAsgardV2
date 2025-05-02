@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+
+    <meta name="description"
+        content="A unique Essence server, that is built based on new, unseen, unique, and interactive ideas and changes, to provide the best game experience for the players of our precious game Essence." />
+    <meta name="keywords"
+        content="shaiya asgard, asgard shaiya, shaiya ep5, shaiya episode 4.5, shaiya best PvP, shaiya best server, world of shaiya, worldofshaiya, shaiya os, shaiya games, shaiya top, shaiya 2025, aeria games, fawkes games, shaiya fawkes, fawkes shaiya" />
+    <meta name="author" content="Discord: @cuspe" />
+    <meta name="robots" content="index,follow" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico'%}">
+    <title>Shaiya Asgard - Login</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" /> 
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {% block title %}Home{% endblock %}
+</head>
+<body class="bg-cover bg-top bg-no-repeat h-screen overflow-hidden">
+    <video class="absolute top-0 left-0 w-full h-full object-cover -z-10 brightness-30 opacity-100" autoplay loop muted playsinline>
+        <source src="{% static 'img/shaiyabackground.mp4' %}" type="video/mp4">
+      </video>
+<!--TITULO ANIMADO-->
+    <div class="flex items-center p-4 mb-4 text-sm bg-blue-50 dark:bg-yellow-500 dark:text-grey-900 ">
+    <div class="flex items-center space-x-3 animate-marquee">
+      <svg class="shrink-0 inline w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+        <span class="font-medium">🚀 Update:</span> Now with secure authentication and new design! 🎉
+    </svg>
+    </div>
+    <div class="flex items-center space-x-3 animate-marquee">
+        <svg class="shrink-0 inline w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+          <span class="font-medium">🚀 Update:</span> Now with secure authentication and new design! 🎉
+      </svg>
+    </div>
+    <div class="flex items-center space-x-3 animate-marquee">
+        <svg class="shrink-0 inline w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+          <span class="font-medium">🚀 Update:</span>Now with secure authentication and new design! 🎉
+      </svg>
+    </div>
+  </div>
+  <style>
+  @keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+  
+  .animate-marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 25s linear infinite;
+    
+    margin-right: 100px;
+  }
+  </style>
+<!--TITULO ANIMADO-->
+
+<div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold text-gray-900 text-center">Sign In</h2>
+
+            {% if error %}
+                <div class="p-4 mb-4 text-sm text-red-600 bg-red-50 rounded-lg">{{ error }}</div>
+            {% endif %}
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="p-4 mb-4 text-sm rounded-lg {% if message.tags == 'success' %}text-green-800 bg-green-50{% elif message.tags == 'error' %}text-red-800 bg-red-50{% else %}text-gray-800 bg-gray-100{% endif %}" role="alert">
+                        <span class="font-medium">{{ message.tags|title }}:</span> {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST" class="mt-4">
+                {% csrf_token %}
+                <!-- Campo Username que corresponde ao campo 'userid' do modelo -->
+                <div     class="mb-4">
+                    <label for="username" class="block text-sm font-medium text-gray-800">Username</label>
+                    <input type="text" name="username" id="username" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your username" required>
+                </div>
+
+                <!-- Senha -->
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-800">Password</label>
+                    <input type="password" name="password" id="password" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm md:text-base" placeholder="Enter your password" required>
+                </div>
+
+                <!-- Lembrar-me e Esqueci a senha -->
+                <div class="mb-4 flex flex-col sm:flex-row items-center justify-between">
+                    <div class="flex items-center">
+                        <input id="remember_me" type="checkbox" name="remember_me" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="remember_me" class="ml-2 text-sm text-gray-800">Remember me</label>
+                    </div>
+                    <a href="{% url 'password_reset' %}" class="text-sm text-blue-500 hover:underline">Forgot password?</a>
+                </div>
+
+                <!-- Botão de Login -->
+                <button type="submit" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2.5 rounded-lg transition-all duration-300 focus:ring-2 focus:ring-yellow-400">
+                    Sign In
+                </button>
+
+                <!-- Opção para quem não tem conta -->
+                <p class="text-sm text-gray-600 text-center mt-4">
+                    Don't have an account? <a href="{% url 'register' %}" class="text-blue-500 hover:underline">Sign up</a>
+                </p>
+
+                <!-- Botão para voltar à página inicial -->
+                <div class="text-center mt-4">
+                    <a href="{% url 'home' %}" class="text-sm text-gray-800 hover:text-blue-500 transition-all duration-200">← Back to Home</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shaiya Asgard - Missing Page</title>
+    <meta name="description"
+        content="A unique Essence server, that is built based on new, unseen, unique, and interactive ideas and changes, to provide the best game experience for the players of our precious game Essence." />
+    <meta name="keywords"
+        content="shaiya asgard, asgard shaiya, shaiya ep5, shaiya episode 4.5, shaiya best PvP, shaiya best server, world of shaiya, worldofshaiya, shaiya os, shaiya games, shaiya top, shaiya 2025, aeria games, fawkes games, shaiya fawkes, fawkes shaiya" />
+    <meta name="author" content="Discord: @cuspe" />
+    <meta name="robots" content="index,follow" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{% static './img/favicon.ico' %}" type="image/x-icon">
+    
+    <link href="./cs/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" /> 
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>    
+  </head>
+  <body>
+
+    <section class="relative min-h-screen flex flex-col items-center justify-center bg-stone-900 overflow-hidden">
+      <!-- Vídeo de fundo -->
+      <video 
+        class="absolute top-0 left-0 w-full h-full object-cover brightness-50 opacity-30 z-0"
+        autoplay 
+        loop 
+        muted 
+        playsinline
+      >
+        <source src="{% static 'img/shaiyabackground.mp4' %}" type="video/mp4">
+      </video>
+    
+      <div class="relative z-10 text-center space-y-8 p-6">
+        <!-- Ícone animado -->
+        <div class="flex justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="animate-pulse h-24 w-24 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+    
+        <!-- Mensagem principal -->
+        <h1 class="text-6xl font-extrabold text-amber-600 drop-shadow-lg">
+          Under Construction! <span class="text-amber-400">🚀</span>
+        </h1>
+        
+        <p class="text-xl text-amber-300 font-medium">
+          We're preparing something amazing.<br>
+          You'll be redirected automatically.
+        </p>
+    
+        <!-- Botão de ação -->
+        <a href="{% url 'home' %}"
+           class="mt-8 px-8 py-4 bg-amber-600 text-stone-900 font-bold rounded-full shadow-lg hover:bg-amber-500 transition duration-300">
+          Return to Home
+        </a>
+      </div>
+    </section>
+    
+    <!-- Script para redirecionamento automático -->
+    <script>
+      // Redireciona após 5 segundos (5000ms) [[2]]
+      setTimeout(function() {
+        window.location.href = "{% url 'home' %}";
+      }, 5000);
+    </script>
+
+
+  </body>
+</html>

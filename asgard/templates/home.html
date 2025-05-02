@@ -1,0 +1,560 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Home{% endblock %}
+{% block 'home' %}
+<link
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  rel="stylesheet"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- HOME -->
+<div class="relative overflow-hidden py-24 sm:py-32">
+  <!-- Vídeo de fundo -->
+  <video
+    class="absolute top-0 left-0 w-full h-full object-cover -z-10 brightness-30 opacity-100"
+    autoplay
+    loop
+    muted
+    playsinline
+  >
+    <source src="{% static 'img/shaiyabackground.mp4' %}" type="video/mp4" />
+  </video>
+
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div
+      class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+    >
+      <div class="lg:pt-4 lg:pr-8">
+        <div class="lg:max-w-lg">
+          <h2 class="text-base/7 font-semibold text-yellow-600">
+            By players, for players 🤝
+          </h2>
+          <p
+            class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-300 sm:text-5xl"
+          >
+            Shaiya Asgard: Classic Server
+          </p>
+          <p class="mt-6 text-lg/8 text-gray-300">
+            Embark on an epic journey in Shaiya Asgard, where classic gameplay
+            meets modern enhancements. Experience balanced PvP battles,
+            challenging quests, and a fair gaming environment designed for all
+            players.
+          </p>
+          <dl
+            class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-400 lg:max-w-none"
+          >
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-yellow-700">
+                <svg
+                  class="absolute top-1 left-1 size-5 text-indigo-600"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                Classic Episode 4 Experience:
+              </dt>
+              <dd class="inline">
+                Relive the original Shaiya adventures with a maximum level of 60
+                and authentic game mechanics.
+              </dd>
+            </div>
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-yellow-700">
+                <svg
+                  class="absolute top-1 left-1 size-5 text-indigo-600"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M18.122 17.645a7.185 7.185 0 0 1-2.656 2.495 7.06 7.06 0 0 1-3.52.853 6.617 6.617 0 0 1-3.306-.718 6.73 6.73 0 0 1-2.54-2.266c-2.672-4.57.287-8.846.887-9.668A4.448 4.448 0 0 0 8.07 6.31 4.49 4.49 0 0 0 7.997 4c1.284.965 6.43 3.258 5.525 10.631 1.496-1.136 2.7-3.046 2.846-6.216 1.43 1.061 3.985 5.462 1.754 9.23Z"
+                  />
+                </svg>
+                Enhanced PvP System:
+              </dt>
+              <dd class="inline">
+                Enjoy a x2 Kill Rate with shared kills across all raids,
+                promoting intense and rewarding PvP engagements.
+              </dd>
+            </div>
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-yellow-700">
+                <svg
+                  class="absolute top-1 left-1 size-5 text-indigo-600"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 17.345a4.76 4.76 0 0 0 2.558 1.618c2.274.589 4.512-.446 4.999-2.31.487-1.866-1.273-3.9-3.546-4.49-2.273-.59-4.034-2.623-3.547-4.488.486-1.865 2.724-2.899 4.998-2.31.982.236 1.87.793 2.538 1.592m-3.879 12.171V21m0-18v2.2"
+                  />
+                </svg>
+                Balanced Economy:
+              </dt>
+              <dd class="inline">
+                Our carefully balanced gold and SP economy ensures that end-game
+                content is farmable and accessible to all players.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-6">
+        <!--SLIDER-->
+        <div class="w-full relative">
+          <div
+            class="swiper vertical-slide-carousel swiper-container relative h-130 transform transition-transform duration-500 hover:scale-105"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="rounded-2xl flex justify-center items-center h-130">
+                  <a
+                    href="https://drive.google.com/file/d/1Y_-PjeQc2-Uo1F9EqBt7Bt-QihsibpFX/view?usp=sharing"
+                    target="_blank"
+                  >
+                    <img
+                      class="rounded-2xl"
+                      src="{% static 'img/Banner_00.png' %}"
+                      alt="Download now!"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="rounded-2xl flex justify-center items-center h-130">
+                  <a href="#" target="">
+                    <img
+                      class="rounded-2xl"
+                      src="{% static 'img/Banner_01.png' %}"
+                      alt="Reward for beta tester"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-pagination !right-10 !left-full !top-1/3 !translate-y-8"
+            ></div>
+          </div>
+        </div>
+        <script>
+          var swiper = new Swiper(".swiper-container", {
+            speed: 1000,
+            direction: "vertical", // Define a direção do slider como vertical
+            loop: true, // Habilita o loop infinito dos slides
+            autoplay: {
+              delay: 5000, // Define o tempo de exibição de cada slide em milissegundos
+              disableOnInteraction: false, // Continua o autoplay mesmo após interação do usuário
+            },
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+          });
+        </script>
+        <!--SLIDER-->
+      </div>
+    </div>
+  </div>
+</div>
+<!--FIM CENTRAL-->
+<!-- INICIO DO GRID -->
+<div
+  class="bg-gray-50 py-24 sm:py-32 bg-center"
+  style="background-image: url('{% static 'img/background_page.png' %}')"
+>
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+    <h1
+      class="mt-2 text-center text-4xl font-semibold tracking-tight text-pretty text-zinc-800 sm:text-5xl"
+      id="ServInfo"
+    >
+      Server Information
+    </h1>
+
+    <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+      <!-- FRAME 1 - CONTEÚDO DO RANKING -->
+      <div class="relative lg:row-span-2 h-full">
+        <div
+          class="absolute inset-px rounded-lg bg-dark lg:rounded-l-[2rem]"
+        ></div>
+        <div
+          class="relative flex flex-col overflow-hidden h-full rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)] transform transition-transform duration-500 hover:scale-[1.02]"
+        >
+          <div
+            class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0 bg-cover bg-no-repeat bg-bottom brightness-70 h-full"
+            style="
+              background-image: url('{% static 'img/background_footer.png' %}');
+            "
+          >
+            <!-- Título -->
+            <p
+              class="mt-2 text-lg font-medium text-center tracking-tight text-amber-400 max-lg:text-center drop-shadow-lg"
+            >
+              🏆 Top Players Ranking
+            </p>
+            <!-- Tabela de Ranking -->
+            <div class="mt-4 overflow-x-auto">
+              <table class="w-full ranking-table">
+                <thead>
+                  <tr class="text-xs text-gray-300 border-b border-white/10">
+                    <th class="pb-2 w-8">#</th>
+                    <th class="text-left pb-2">Name</th>
+                    <th class="pb-2 w-20">Class</th>
+                    <th class="pb-2 w-12">Lv</th>
+                    <th class="pb-2 w-16">Kills</th>
+                    <th class="pb-2 w-16">Deaths</th>
+                    <th class="pb-2 w-16">KDR</th>
+                    <th class="pb-2 w-12">Rank</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for player in top_players %}
+                  <tr
+                    class="text-xs hover:bg-white/5 transition-colors {% if forloop.counter <= 3 %}text-amber-100{% else %}text-gray-400{% endif %}"
+                  >
+                    <td class="py-2 text-center">#{{ forloop.counter }}</td>
+                    <td class="py-2 font-medium truncate max-w-[100px]">
+                      {{ player.name }}
+                    </td>
+                    <td
+                      class="py-2 text-center i{{ player.char_class|add:17 }}"
+                    ></td>
+                    <td class="py-2 text-center">{{ player.level }}</td>
+                    <td class="py-2 text-center text-green-400">
+                      {{ player.kills }}
+                    </td>
+                    <td class="py-2 text-center text-red-400">
+                      {{ player.deaths }}
+                    </td>
+                    <td class="py-2 text-center">
+                      {{ player.kdr|floatformat:3 }}
+                    </td>
+                    <td class="py-2 text-center">
+                      {% if forloop.counter == 1 %}
+                      <img
+                        src="{% static 'img/ranks/number_one.png' %}"
+                        class="w-auto h-6 mx-auto"
+                        alt="Gold Rank"
+                      />
+                      {% elif forloop.counter == 2 %}
+                      <img
+                        src="{% static 'img/ranks/number_two.png' %}"
+                        class="w-auto h-6 mx-auto"
+                        alt="Silver Rank"
+                      />
+                      {% elif forloop.counter == 3 %}
+                      <img
+                        src="{% static 'img/ranks/number_three.png' %}"
+                        class="w-auto h-6 mx-auto"
+                        alt="Bronze Rank"
+                      />
+                      {% endif %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- Redirecionamento pra Full Ranking -->
+            <div class="mt-4 text-center">
+              <!--<a href="#ServInfo" class="text-xs text-amber-400 hover:text-amber-300 transition-colors inline-flex items-center">
+                View Full Ranking
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>-->
+            </div>
+            <!-- Fim do ranking -->
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 lg:rounded-l-[2rem]"
+        ></div>
+      </div>
+      <!-- FIM FRAME 1 -->
+      <!-- FRAME 2 -->
+      <div
+        class="relative max-lg:row-start-1 rounded-lg bg-cover bg-no-repeat bg-top h-full mb-5"
+      >
+        <div class="absolute inset-px rounded-lg bg-dark"></div>
+        <div
+          class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] transform transition-transform duration-500 hover:scale-[1.02]"
+        >
+          <div
+            class="px-8 pt-1 pb-3 sm:px-10 sm:pt-2 sm:pb-0 bg-cover bg-no-repeat bg-center brightness-70 h-full"
+            style="
+              background-image: url('{% static 'img/background_footer.png' %}');
+            "
+          >
+            <!-- Título Principal -->
+            <p
+              class="text-lg text-center font-medium tracking-tight text-white drop-shadow-lg"
+            >
+              ⚔️ End-Game & Customizations<br />
+              <span class="text-sm text-center font-normal text-orange-400"
+                >Exclusive Features</span
+              >
+              🔥
+            </p>
+            <!-- Conteúdo Detalhado -->
+            <div class="mt-1 max-w-lg text-sm/6 text-gray-200 space-y-3">
+              <div class="inline-block">
+                <span class="font-semibold text-white">CUSTOM SYSTEMS</span
+                ><br />
+                <div class="mt-2">
+                  <p class="text-white/90">→ 👸 <strong>Goddess Set</strong></p>
+                  <p class="text-xs text-gray-300">
+                    Drops from classic end-game bosses
+                  </p>
+                </div>
+                <div class="mt-2">
+                  <p class="text-white/90">→ 🛍️ <strong>58s Set</strong></p>
+                  <p class="text-xs text-gray-300">
+                    Dropped or available in Item Mall<br />
+                    Chaotic Square: Epic 60
+                  </p>
+                </div>
+              </div>
+              <!-- Destaques -->
+              <ul class="mt-2 space-y-1 list-none pl-0">
+                <li class="text-emerald-400">✔ Custom Interface (EP3 Style)</li>
+                <li class="text-emerald-400">✔ Separate Buff/Debuff Icons</li>
+                <li class="text-emerald-400">✔ Classic Ranking System</li>
+                <li class="text-emerald-400">✔ Optimized Updater</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 lg:rounded-r-[2rem]"
+        ></div>
+      </div>
+      <!-- FIM FRAME 2 -->
+      <!-- FRAME 3 -->
+      <div
+        class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2 h-full mb-5"
+      >
+        <div class="absolute inset-px rounded-lg bg-dark"></div>
+        <div
+          class="relative flex flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] bg-cover bg-no-repeat bg-bottom brightness-70 h-full transform transition-transform duration-500 hover:scale-[1.02]"
+          style="
+            background-image: url('{% static 'img/background_footer.png' %}');
+          "
+        >
+          <div class="px-8 sm:px-10 sm:pt-2 sm:pb-0 h-full">
+            <!-- Título Principal -->
+            <p
+              class="text-lg text-center font-medium tracking-tight text-white drop-shadow-lg"
+            >
+              🔥 Shaiya Asgard 🔥<br />
+              <span class="text-sm text-center font-normal text-orange-400"
+                >By players, for players</span
+              >
+              🤝
+            </p>
+            <!-- Conteúdo Detalhado -->
+            <div class="max-w-lg text-sm/6 text-gray-200 space-y-3">
+              <div class="inline-block">
+                <span class="font-semibold text-white"
+                  >EPISODE 4 | MAX LV.60</span
+                ><br />
+                <div class="mt-2">
+                  <p class="text-white/90">
+                    → 💀 <strong>KILL Rate x2</strong>
+                  </p>
+                  <p class="text-xs text-gray-300">
+                    Shared kills across all raids (w/ BFR Quest)
+                  </p>
+                </div>
+                <div class="mt-1">
+                  <p class="text-white/90">→ 💎 <strong>Lapis</strong></p>
+                  <p class="text-xs text-gray-300">
+                    Max Lv6<br />
+                    Elemental Lv1<br />
+                    Flash/Sonic Lv1 (Season 1)
+                  </p>
+                </div>
+              </div>
+              <!-- Destaques -->
+              <ul class="mt-1 space-y-1 list-none pl-0">
+                <li class="text-emerald-400">✔ Season 1 - Limited Content</li>
+                <li class="text-emerald-400">✔ Balanced economy (Gold/SP)</li>
+                <li class="text-emerald-400">✔ Farmable end-game content</li>
+                <li class="text-emerald-400">✔ Ranking rewards system</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5"
+        ></div>
+      </div>
+      <!-- FIM FRAME 3 -->
+      <!-- FRAME - Latest News -->
+      <div class="relative lg:row-span-2 h-full">
+        <div
+          class="absolute inset-px rounded-lg bg-dark max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"
+        ></div>
+        <div
+          class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)] transform transition-transform duration-500 hover:scale-[1.02]"
+        >
+          <div
+            class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0 bg-cover bg-no-repeat bg-center brightness-70 h-full"
+            style="
+              background-image: url('{% static 'img/background_footer.png' %}');
+            "
+          >
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+            >
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p
+                  class="mt-2 text-lg font-medium tracking-tight text-white max-lg:text-center"
+                >
+                  📢 Latest News
+                </p>
+                <p
+                  class="mt-2 mb-10 max-w-lg text-sm font-normal text-orange-400 max-lg:text-center"
+                >
+                  Stay informed about server changes
+                </p>
+              </div>
+              <!-- News Content -->
+              <div class="flex-1 px-8 pb-8 sm:px-1 space-y-4 overflow-y-auto">
+                {% for news in news_updates %}
+                <div
+                  class="group relative p-4 rounded-lg transition-all bg-black/50 hover:bg-amber-900/20"
+                >
+                  <!-- Label dinâmico -->
+                  {% if news.label == "FIX" %}
+                  <span
+                    class="mb-2 inline-flex items-center bg-red-800 text-stone-50 text-xs font-medium mr-2 pl-1.5 pr-2 rounded-full py-1"
+                  >
+                    <svg
+                      width="auto"
+                      height="10"
+                      viewBox="0 0 16 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mr-1"
+                    >
+                      <path
+                        d="M7.99998 4.46424V8.62133M7.99998 10.6999V10.7345M3.19979 12.7784H12.8002C13.8669 12.7784 14.4002 12.7784 14.6002 12.432C14.8002 12.0856 14.5336 11.6237 14.0002 10.6999L9.20003 2.3857C8.66667 1.4619 8.4 1 7.99998 1C7.59996 1 7.33329 1.4619 6.79993 2.3857L1.99974 10.6999C1.46639 11.6237 1.19971 12.0856 1.39972 12.432C1.59973 12.7784 2.13308 12.7784 3.19979 12.7784Z"
+                        stroke="white"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    UPDATES
+                  </span>
+                  {% elif news.label == "NEW" %}
+                  <span
+                    class="mb-2 inline-flex items-center bg-amber-600 text-stone-50 text-xs font-medium mr-2 pl-1.5 pr-2 rounded-full py-1"
+                  >
+                    <svg
+                      width="auto"
+                      height="10"
+                      viewBox="0 0 16 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mr-1"
+                    >
+                      <path
+                        d="M7.99998 4.46424V8.62133M7.99998 10.6999V10.7345M3.19979 12.7784H12.8002C13.8669 12.7784 14.4002 12.7784 14.6002 12.432C14.8002 12.0856 14.5336 11.6237 14.0002 10.6999L9.20003 2.3857C8.66667 1.4619 8.4 1 7.99998 1C7.59996 1 7.33329 1.4619 6.79993 2.3857L1.99974 10.6999C1.46639 11.6237 1.19971 12.0856 1.39972 12.432C1.59973 12.7784 2.13308 12.7784 3.19979 12.7784Z"
+                        stroke="white"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    NEWS
+                  </span>
+                  {% elif news.label == "EVENT" %}
+                  <span
+                    class="mb-2 inline-flex items-center bg-violet-800 text-stone-50 text-xs font-medium mr-2 pl-1.5 pr-2 rounded-full py-1"
+                  >
+                    <svg
+                      width="auto"
+                      height="10"
+                      viewBox="0 0 16 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mr-1"
+                    >
+                      <path
+                        d="M7.99998 4.46424V8.62133M7.99998 10.6999V10.7345M3.19979 12.7784H12.8002C13.8669 12.7784 14.4002 12.7784 14.6002 12.432C14.8002 12.0856 14.5336 11.6237 14.0002 10.6999L9.20003 2.3857C8.66667 1.4619 8.4 1 7.99998 1C7.59996 1 7.33329 1.4619 6.79993 2.3857L1.99974 10.6999C1.46639 11.6237 1.19971 12.0856 1.39972 12.432C1.59973 12.7784 2.13308 12.7784 3.19979 12.7784Z"
+                        stroke="white"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    EVENT
+                  </span>
+                  {% else %}
+                  <span
+                    class="mb-2 inline-flex items-center bg-emerald-600 text-stone-50 text-xs font-medium mr-2 pl-1.5 pr-2 rounded-full py-1"
+                  >
+                    <svg
+                      width="auto"
+                      height="10"
+                      viewBox="0 0 16 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mr-1"
+                    >
+                      <path
+                        d="M7.99998 4.46424V8.62133M7.99998 10.6999V10.7345M3.19979 12.7784H12.8002C13.8669 12.7784 14.4002 12.7784 14.6002 12.432C14.8002 12.0856 14.5336 11.6237 14.0002 10.6999L9.20003 2.3857C8.66667 1.4619 8.4 1 7.99998 1C7.59996 1 7.33329 1.4619 6.79993 2.3857L1.99974 10.6999C1.46639 11.6237 1.19971 12.0856 1.39972 12.432C1.59973 12.7784 2.13308 12.7784 3.19979 12.7784Z"
+                        stroke="white"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    NEWS
+                  </span>
+                  {% endif %}
+                  <div class="space-y-2">
+                    <h3 class="text-sm font-semibold text-white pr-12 truncate">
+                      {{ news.title }}
+                    </h3>
+                    <p class="text-xs text-gray-300 line-clamp-3">
+                      {{ news.content|safe }}
+                    </p>
+                    <p class="text-xs text-amber-400/80 mt-2">
+                      📅 {{ news.published_date|date:"M d, Y - H:i" }}
+                    </p>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg ring-1 ring-white/5 max-lg:rounded-t-[2rem]"
+        ></div>
+      </div>
+      <!-- END FRAME - Latest News -->
+    </div>
+  </div>
+</div>
+<!-- FIM DO GRID -->
+{% endblock %}
