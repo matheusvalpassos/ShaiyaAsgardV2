@@ -117,7 +117,9 @@ Acesse: http://127.0.0.1:8000/ no navegador.
 ### Funcionalidades Disponíveis:
 
 **Página Inicial**: Apresentação do projeto com elementos visuais interativos.
+
 **Autenticação** : Registre ou faça login com formulários dinâmicos.
+
 **Ranking** : Visualize a tabela de classificação integrada ao banco de dados.
 
 ## 📫 Contribuindo para o Projeto
