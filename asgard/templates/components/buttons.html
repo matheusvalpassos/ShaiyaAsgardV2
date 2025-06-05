@@ -1,0 +1,22 @@
+{% load static %}
+<div class="bg-[#12141f] shadow-[0_10px_15px_4px_rgba(0,0,0,0.3)] p-4 text-gray-300" style="background-image: url('{% static 'img/block-top-bg.png' %}'),url('{% static 'img/block-bottom-bg.png' %}');background-position: center top, center bottom;background-repeat: no-repeat, no-repeat;">
+    <div class="text-center mt-4">
+        <div class="flex justify-between items-center flex-wrap mb-6 pb-6 border-b border-[#22252d] relative">
+            <span class="relative uppercase text-orange-500 text-xl block pl-6">Access Account
+                <span class="absolute bg-[url('{% static 'img/title-icon.png' %}')] bg-no-repeat w-7 h-7 left-[-5px] top-1/2 -translate-y-1/2 filter-[drop-shadow(0_0_10px_#ff2a00)] inline-block"></span>
+            </span>
+        </div>
+
+        <div class="buttons-container flex justify-center gap-4 my-6"> {# Adicionado gap e margens #}
+            <button id="loginBtn" class="py-2 px-6 rounded-sm bg-gradient-to-r from-blue-600 to-blue-800 text-white font-medium hover:from-blue-700 hover:to-blue-900 transition-all duration-300 shadow-md">
+                Login
+            </button>
+            <button id="createAccountBtn" class="py-2 px-6 rounded-sm bg-gradient-to-r from-orange-600 to-orange-800 text-white font-medium hover:from-orange-700 hover:to-orange-900 transition-all duration-300 shadow-md">
+                Create Account
+            </button>
+        </div>
+
+        <div id="content-area" class="text-white shadow-lg fade-in ">
+</div>
+    </div>
+</div>

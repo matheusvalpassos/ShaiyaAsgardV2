@@ -1,169 +1,90 @@
-<!--{% load static %}-->
+{% load static %}
+<div class="max-w-md mx-auto p-6 text-white fade-in">
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <div class="flex justify-between items-center flex-wrap mb-6 pb-6 border-b border-[#22252d] relative">
+    <span class="relative uppercase text-orange-500 text-xl block pl-6">Create Account
+      <span class="absolute bg-[url('{% static 'img/title-icon.png' %}')] bg-no-repeat w-7 h-7 left-[-5px] top-1/2 -translate-y-1/2 filter-[drop-shadow(0_0_10px_#ff2a00)] inline-block"></span>
+    </span>
+  </div>
 
-<head>
-    <meta name="description"
-        content="A unique Essence server, that is built based on new, unseen, unique, and interactive ideas and changes, to provide the best game experience for the players of our precious game Essence." />
-    <meta name="keywords"
-        content="shaiya asgard, asgard shaiya, shaiya ep5, shaiya episode 4.5, shaiya best PvP, shaiya best server, world of shaiya, worldofshaiya, shaiya os, shaiya games, shaiya top, shaiya 2025, aeria games, fawkes games, shaiya fawkes, fawkes shaiya" />
-    <meta name="author" content="Discord: @cuspe" />
-    <meta name="robots" content="index,follow" />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="icon" href="{% static './img/favicon.ico' %}" type="image/x-icon">
-    <title>Shaiya Asgard - Register</title>
-    <link href="./static/output.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-</head>
+    <div class="mb-6 font-sans">
+        <h2 class="text-center text-xs text-white">For security, your password is saved and encrypted in our database using sha256.</h2>
+    </div>
+    
+    <form method="post" class="space-y-4">
+    {% if messages %}
+    <ul class="mb-4 text-sm">
+        {% for message in messages %}
+        <li class="
+            p-2 rounded text-center
+            {% if message.tags == 'error' %}
+                text-red-500 bg-red-900/30
+            {% elif message.tags == 'success' %}
+                text-green-500 bg-green-900/30
+            {% else %}
+                text-yellow-500 bg-yellow-900/30
+            {% endif %}
+        ">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 
-<body class="overflow-auto md:overflow-auto">
-    <section class="min-h-screen flex items-stretch text-white">
-        <div class="lg:flex w-1/2 hidden bg-stone-900 relative items-center">
+    <div class="flex items-center px-3 py-2 bg-[#12141f] rounded shadow-inner border border-yellow-900 font-sans">
+        <svg class="w-4 h-4 text-yellow-400 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A6 6 0 0112 15a6 6 0 016.879 2.804M12 11a4 4 0 100-8 4 4 0 000 8z"/>
+        </svg>
+        <input type="text" name="username" placeholder="Username" class="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none" required/>
+    </div>
 
-            <video class="absolute h-full object-cover object-left brightness-30 opacity-100" autoplay loop muted
-                playsinline>
-                <source src="{% static "img/shaiyabackground.mp4" %}" type="video/mp4" />
-            </video>
+    <div class="flex items-center px-3 py-2  bg-[#12141f] rounded shadow-inner border border-yellow-900 font-sans">
+        <svg class="w-4 h-4 text-yellow-400 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
+            </svg>
+        <input type="email" name="email" placeholder="Email" class="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none" required/>
+    </div>
 
+    <div class="text-xs text-left font-sans text-gray-400 mb-2">
+    <p>Password must:</p>
+    <ul class="list-disc pl-4 italic">
+        <li>Be at least 8 characters long</li>
+        <li>Contain both letters and numbers</li>
+        <li>Match the confirmation field</li>
+    </ul>
+    </div>
 
-            <div class="w-full px-24 z-10 text-center mt-100">
-                <h1 class="text-5xl font-bold tracking-wide">Have a fun!</h1>
-                <p class="text-3xl my-4">By players, for players 🤝</p>
-            </div>
-            <div class="bottom-0 absolute p-4 right-0 left-0 flex space-x-4">
+    <div class="flex items-center px-3 py-2  bg-[#12141f] rounded shadow-inner border border-yellow-900 font-sans">
+        <svg class="w-4 h-4 text-yellow-400 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+        </svg>
+        <input type="password" name="password" placeholder="Password" class="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none" required/>
+    </div>
 
-            </div>
+    <div class="flex items-center px-3 py-2  bg-[#12141f] rounded shadow-inner border border-yellow-900 font-sans">
+        <svg class="w-4 h-4 text-yellow-400 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+        </svg>
+        <input type="password" name="password_confirm" placeholder="Confirm Password" class="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none" required/>
+    </div>
+
+    <div class="font-sans cursor-pointer">
+        <button class="cursor-pointer group relative inline-flex items-center overflow-hidden rounded-sm bg-gradient-to-r from-green-600 to-green-800 px-6 py-1 text-white" type="button">
+          <span class="absolute -start-full transition-all group-hover:start-4">
+            <svg class="size-4 shadow-sm rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </span>
+          <span class="text-sm font-medium transition-all group-hover:ms-4">Register</span>
+        </button>
+    </div>
+    </form>
+
+    <div class="text-xs text-gray-400 text-center space-y-1 font-sans">
+        <div class="flex justify-between items-center flex-wrap mb-6 pb-6 border-b border-[#22252d] relative">
+            <span class="absolute w-7 h-7 left-[-5px] top-1/2 -translate-y-1/2 filter-[drop-shadow(0_0_10px_#ff2a00)] inline-block"></span>
         </div>
-
-        <div
-            class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0 bg-zinc-950 mix-blend-plus-darker">
-            <div class="absolute lg:hidden z-10 inset-0 bg-stone-900 bg-no-repeat bg-cover items-center">
-                <video class="absolute h-full object-cover object-left brightness-30 opacity-100" autoplay loop muted
-                    playsinline>
-                    <source src="{% static "img/shaiyabackground.mp4" %}" type="video/mp4" />
-                </video>
-                <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
-            </div>
-            <div class="w-full py-6 z-20 flexbox select-none">
-                <div class="align-center flex justify-center object-center text-center">
-                        <img class="h-55 w-auto hover:brightness-110 transition hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none md:transition-all hover:scale-120"
-                            src="{% static "img/Logotipo1.png" %}" alt="Shaiya Asgard Logotipo"></div>
-                <h1
-                    class="my-6 relative top-0 h-auto py-4 justify-center flex bg-gradient-to-r items-center from-yellow-500 via-orange-300 to-amber-500 bg-clip-text text-6xl font-extrabold text-transparent text-center select-none">
-                    Create an Account!</h1>
-                <div class="w-full h-px max-w-6xl mx-auto my-5"
-                    style="background-image: linear-gradient(90deg, rgba(149, 131, 198, 0) 1.46%, rgba(255, 255, 255, 0.6) 40.83%, rgba(255, 255, 255, 0.3) 65.57%, rgba(149, 131, 198, 0) 107.92%);">
-                </div>
-
-                <form id="signupForm" method="POST" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
-                    <!--ERROS-->
-                    {% csrf_token %}
-                    {% if form.errors %}
-                    <div class="mb-4 text-red-600">
-                        <ul>
-                            {% for field, errors in form.errors.items %}
-                            {% for error in errors %}
-                            <li>{{ field|title }}: {{ error }}</li>
-                            {% endfor %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-                    <!--ERROS-->
-
-                    <div class="pt-2 flexbox">
-                        <div class="relative text-gray-500 focus-within:text-gray-900 mt-2 mb-2">
-                            <div
-                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center rounded-l-lg border-gray-300 bg-gray-200 px-3">
-                                <svg class="stroke-gray-500" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
-                                        stroke="currentColor" stroke-width="1.6" class="my-path"></path>
-                                    <path
-                                        d="M11.9998 14C9.15153 14 6.65091 15.3024 5.23341 17.2638C4.48341 18.3016 4.10841 18.8204 4.6654 19.9102C5.2224 21 6.1482 21 7.99981 21H15.9998C17.8514 21 18.7772 21 19.3342 19.9102C19.8912 18.8204 19.5162 18.3016 18.7662 17.2638C17.3487 15.3024 14.8481 14 11.9998 14Z"
-                                        stroke="currentColor" stroke-width="1.6" class="my-path">
-                                    </path>
-                                </svg>
-                            </div>
-                            {{ form.userid }}
-                        </div>
-                        <div class="relative text-gray-500 focus-within:text-gray-900 mt-2 mb-2">
-                            <div
-                                class="absolute inset-y-0 left-0 flex items-center px-3 rounded-l-lg border-gray-300 pointer-events-none bg-gray-200">
-                                <svg class="stroke-gray-500" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M3 12C3 8.22876 3 6.34315 4.17157 5.17157C5.34315 4 7.22876 4 11 4H13C16.7712 4 18.6569 4 19.8284 5.17157C21 6.34315 21 8.22876 21 12C21 15.7712 21 17.6569 19.8284 18.8284C18.6569 20 16.7712 20 13 20H11C7.22876 20 5.34315 20 4.17157 18.8284C3 17.6569 3 15.7712 3 12Z"
-                                        stroke="currentColor" stroke-width="1.6" class="my-path"></path>
-                                    <path
-                                        d="M3.54883 6.73307L7.76733 9.36198C9.82587 10.6448 10.8551 11.2863 11.9998 11.2861C13.1445 11.2859 14.1736 10.6441 16.2317 9.36063L20.461 6.72314"
-                                        stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                                        stroke-linejoin="round" class="my-path"></path>
-                                </svg>
-                            </div>
-                            {{ form.email }}
-                        </div>
-                        <div class="relative text-gray-500 focus-within:text-gray-900 mt-2 mb-2">
-                            <div
-                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center rounded-l-lg border-gray-300 bg-gray-200 px-3">
-                                <svg class="stroke-gray-500" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                                        stroke="currentColor" stroke-width="1.6" class="my-path"></path>
-                                    <path
-                                        d="M12 7C10.3431 7 9 8.34315 9 10C9 10.6239 9.19048 11.2034 9.51646 11.6834C10.1659 12.6396 10.4906 13.1177 10.5325 13.3009C10.5687 13.4588 10.5672 13.4382 10.5549 13.5998C10.5407 13.7871 10.4191 14.0408 10.1758 14.5481C9.74165 15.4534 9.52459 15.906 9.62506 16.2677C9.67733 16.4558 9.78354 16.6246 9.93059 16.753C10.2132 17 10.7152 17 11.7192 17H12.2808C13.2848 17 13.7868 17 14.0694 16.753C14.2165 16.6246 14.3227 16.4558 14.3749 16.2677C14.4754 15.906 14.2583 15.4534 13.8242 14.5481C13.5809 14.0408 13.4593 13.7871 13.4451 13.5998C13.4328 13.4382 13.4313 13.4588 13.4675 13.3009C13.5094 13.1177 13.8341 12.6396 14.4835 11.6834C14.8095 11.2034 15 10.6239 15 10C15 8.34315 13.6569 7 12 7Z"
-                                        stroke="currentColor" stroke-width="1.6" class="my-path"></path>
-                                </svg>
-                            </div>
-                            {{ form.password1 }}
-                        </div>
-                        <div class="relative text-gray-500 focus-within:text-gray-900 mt-2 mb-2">
-                            <div
-                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center rounded-l-lg border-gray-300 bg-gray-200 px-3">
-                                <svg class="stroke-gray-500" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                                        stroke="currentColor" stroke-width="1.6" class="my-path"></path>
-                                    <path
-                                        d="M12 7C10.3431 7 9 8.34315 9 10C9 10.6239 9.19048 11.2034 9.51646 11.6834C10.1659 12.6396 10.4906 13.1177 10.5325 13.3009C10.5687 13.4588 10.5672 13.4382 10.5549 13.5998C10.5407 13.7871 10.4191 14.0408 10.1758 14.5481C9.74165 15.4534 9.52459 15.906 9.62506 16.2677C9.67733 16.4558 9.78354 16.6246 9.93059 16.753C10.2132 17 10.7152 17 11.7192 17H12.2808C13.2848 17 13.7868 17 14.0694 16.753C14.2165 16.6246 14.3227 16.4558 14.3749 16.2677C14.4754 15.906 14.2583 15.4534 13.8242 14.5481C13.5809 14.0408 13.4593 13.7871 13.4451 13.5998C13.4328 13.4382 13.4313 13.4588 13.4675 13.3009C13.5094 13.1177 13.8341 12.6396 14.4835 11.6834C14.8095 11.2034 15 10.6239 15 10C15 8.34315 13.6569 7 12 7Z"
-                                        stroke="currentColor" stroke-width="1.6" class="my-path"></path>
-                                </svg>
-                            </div>
-                            {{ form.password2 }}
-                        </div>
-                    </div>
-
-                    <div class="flex items-center ml-3 pt-2">
-                        {{ form.terms }} <!-- Campo gerado pelo Django -->
-                        <label for="{{ form.terms.id_for_label }}" class="ml-1 text-sm text-gray-400">
-                            I agree with the <a href="#" class="text-blue-500 hover:underline ml-1">terms and conditions</a>.
-                        </label>
-                    </div>
-
-                    <div class="m-2 pt-2 pb-2 text-right text-sm text-gray-400 hover:underline hover:text-blue-500">
-                        <a href="{% url 'erro-404' %}">Forgot your password?</a>
-                    </div>
-                    <div class="pb-2 pt-4">
-                        <button type="submit"
-                            class="block w-full p-4 text-lg rounded-full shadow-sm font-medium text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none cursor-pointer">✅
-                            Confirm Register</button>
-                    </div>
-                </form>
-                <div class="p-4">
-                    <a href="{% url 'home' %}" class="text-sm text-gray-700 hover:underline hover:text-blue-500">Click here to back to homepage.</a>
-                </div>
-            </div>
+        <p>
+            • Already have an account?
+            <a href="#" class="text-yellow-400 hover:text-yellow-300 font-semibold">Sign in here!</a>
+        </p>
         </div>
-    </section>
-</body>
-
-</html>
+</div>

@@ -1,0 +1,58 @@
+{% load static %}
+<div class="max-w-md mx-auto p-6 text-white fade-in">
+  <div class="flex justify-between items-center flex-wrap mb-6 pb-6 border-b border-[#22252d] relative">
+    <span class="relative uppercase text-orange-500 text-xl block pl-6">User Panel
+      <span class="absolute bg-[url('{% static 'img/title-icon.png' %}')] bg-no-repeat w-7 h-7 left-[-5px] top-1/2 -translate-y-1/2 filter-[drop-shadow(0_0_10px_#ff2a00)] inline-block"></span>
+    </span>
+  </div>
+  <div class="mb-6 font-sans">
+    <h2 class="text-center text-xs font-bold text-white">Enter your login details</h2>
+  </div>
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    <!-- Username -->
+    <div class="flex items-center bg-[#12141f] px-3 py-2 rounded shadow-inner border border-yellow-900 font-sans">
+      <svg class="w-4 h-4 text-yellow-400 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A6 6 0 0112 15a6 6 0 016.879 2.804M12 11a4 4 0 100-8 4 4 0 000 8z"/>
+      </svg>
+      <input type="text" name="username" placeholder="Username" class="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none"/>
+    </div>
+    <!-- Password -->
+    <div class="flex items-center bg-[#12141f] px-3 py-2 rounded shadow-inner border border-yellow-900 font-sans">
+      <svg class="w-4 h-4 text-yellow-400 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+      </svg>
+      <input type="password" name="password" placeholder="********" class="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none"/>
+    </div>
+    <!-- Remember Me & Sign In -->
+    <div class="flex items-center justify-between mt-4 font-sans">
+      <label class="inline-flex items-center text-xs text-gray-300">
+        <input type="checkbox" name="remember" class="form-checkbox text-yellow-500 mr-2 rounded-sm"/>
+        Remember my details
+      </label>
+      <div class="font-sans cursor-pointer">
+        <button class="cursor-pointer group relative inline-flex items-center overflow-hidden rounded-sm bg-gradient-to-r from-red-600 to-red-800 px-6 py-1 text-white" type="button">
+          <span class="absolute -start-full transition-all group-hover:start-4">
+            <svg class="size-4 shadow-sm rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </span>
+          <span class="text-sm font-medium transition-all group-hover:ms-4">Sign in</span>
+        </button>
+      </div>
+    </div>
+  </form>
+  <!-- Links -->
+  <div class="text-xs text-gray-400 text-center space-y-1 font-sans">
+    <div class="flex justify-between items-center flex-wrap mb-6 pb-6 border-b border-[#22252d] relative">
+      <span class="absolute w-7 h-7 left-[-5px] top-1/2 -translate-y-1/2 filter-[drop-shadow(0_0_10px_#ff2a00)] inline-block"></span>
+    </div>
+    <p>
+      • <a href="#" class="hover:text-yellow-300">Do you forgot password?</a>
+    </p>
+    <p>
+      • No account yet?
+      <a href="#" class="text-yellow-400 hover:text-yellow-300 font-semibold">Register now!</a>
+    </p>
+  </div>
+</div>

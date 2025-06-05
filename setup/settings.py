@@ -33,11 +33,15 @@ DEBUG = config("DEBUG", cast=bool, default=False)
 
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
-#print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")
+# print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")
 
 # Application definition
 
-MY_APPS = ["asgard.apps.AsgardConfig", "accounts", "dashboard"]
+MY_APPS = [
+    "asgard.apps.AsgardConfig",
+    "accounts",
+    "dashboard",
+]
 DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -101,20 +105,12 @@ WSGI_APPLICATION = "setup.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "mssql",
-        "NAME": "BD_Django",
-        "HOST": config("DB_HOST"),
-        "USER": config("DB_USER"),
-        "PASSWORD": config("DB_PASS"),
-        "PORT": "1433",
-        "OPTIONS": {
-            "driver": "ODBC Driver 18 for SQL Server",
-            "extra_params": "Encrypt=yes;TrustServerCertificate=yes",
-        },
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     },
     "user_data": {
-        "ENGINE": "mssql",
-        "NAME": "PS_UserData",
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
         "HOST": config("DB_HOST"),
         "USER": config("DB_USER"),
         "PASSWORD": config("DB_PASS"),
@@ -127,8 +123,8 @@ DATABASES = {
         },
     },
     "game_data": {
-        "ENGINE": "mssql",
-        "NAME": config("DB_NAME_GAMEDATA"),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
         "HOST": config("DB_HOST"),
         "USER": config("DB_USER"),
         "PASSWORD": config("DB_PASS"),

@@ -1,0 +1,138 @@
+{% load static %}
+<!--NOTICIAS-->
+<div class="bg-[#131314] p-4 shadow-md animate-fadeIn">
+  <div class="mb-6 pb-6 border-b border-[#22252d]">
+    <div class="flex justify-between items-center">
+      <span class="relative uppercase text-orange-500 text-xl pl-6" 
+            data-translate="news_title"
+            data-en="News"
+            data-es="Noticias"
+            data-th="ข่าว"
+            data-pt="Notícias">
+        News
+        <span class="absolute bg-[url('{% static 'img/title-icon.png' %}')] bg-no-repeat w-7 h-7 left-[-5px] top-1/2 -translate-y-1/2 filter-[drop-shadow(0_0_10px_#ff2a00)]"></span>
+      </span>
+      <a href="#" class="text-xs text-gray-400 hover:text-white transition" 
+         data-translate="all_news"
+         data-en="See all news"
+         data-es="Ver todas"
+         data-th="ดูทั้งหมด"
+         data-pt="Ver todas">
+        See all news
+      </a>
+    </div>
+  </div>
+
+  <!-- Grid de cards -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <!-- Card 1 -->
+    <article class="group bg-gray-900/70 rounded-lg overflow-hidden shadow-md">
+      <img
+        src="{% static 'img/news/noticia1.jpg' %}"
+        alt="Imagem da Notícia"
+        class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div class="p-4 flex flex-col justify-between">
+        <h3 class="text-md font-semibold text-blue-400 mb-2"
+            data-translate="news1_title"
+            data-en="News Title 1"
+            data-es="Título Noticia 1"
+            data-th="หัวข้อข่าว 1"
+            data-pt="Título da Notícia 1">
+          Título da Notícia 1
+        </h3>
+        <p class="text-sm text-gray-400 mb-4"
+           data-translate="news1_desc"
+           data-en="Brief news description 1... Click to read more."
+           data-es="Breve descripción de la noticia 1... Haz clic para leer más."
+           data-th="คำอธิบายข่าวสั้น ๆ 1... คลิกเพื่ออ่านเพิ่มเติม"
+           data-pt="Breve descrição da notícia 1... Clique para ler mais.">
+          Breve descrição da notícia 1... Clique para ler mais.
+        </p>
+        <div class="flex items-center justify-between text-xs text-gray-500">
+          <span>12/05/2025</span>
+          <a href="#"
+             class="px-2 py-1 bg-gray-800/50 text-gray-300 hover:bg-gray-800 hover:text-white transition rounded"
+             data-translate="read_more"
+             data-en="Read more"
+             data-es="Leer más"
+             data-th="อ่านต่อ"
+             data-pt="Ver mais">
+            Ver mais
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="group bg-gray-900/70 rounded-lg overflow-hidden shadow-md">
+      <img
+        src="{% static 'img/news/noticia2.jpg' %}"
+        alt="Imagem da Mídia"
+        class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div class="p-4 flex flex-col justify-between">
+        <h3 class="text-md font-semibold text-purple-400 mb-2"
+            data-translate="media1_title"
+            data-en="Media Title 1"
+            data-es="Título Medios 1"
+            data-th="หัวข้อมีเดีย 1"
+            data-pt="Título da Mídia 1">
+          Título da Mídia 1
+        </h3>
+        <p class="text-sm text-gray-400 mb-4"
+           data-translate="media1_desc"
+           data-en="Media description 1... See more details about this content."
+           data-es="Descripción de medios 1... Ver más detalles."
+           data-th="รายละเอียดมีเดีย 1... ดูรายละเอียดเพิ่มเติม"
+           data-pt="Descrição da mídia 1... Veja mais detalhes.">
+          Descrição da mídia 1... Veja mais detalhes sobre esse conteúdo.
+        </p>
+        <div class="flex items-center justify-between text-xs text-gray-500">
+          <span>12/05/2025</span>
+          <a href="#"
+             class="px-2 py-1 bg-gray-800/50 text-gray-300 hover:bg-gray-800 hover:text-white transition rounded"
+             data-translate="read_more">
+            Ver mais
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="group bg-gray-900/70 rounded-lg overflow-hidden shadow-md">
+      <img
+        src="{% static 'img/news/noticia3.jpg' %}"
+        alt="Imagem do Evento"
+        class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div class="p-4 flex flex-col justify-between">
+        <h3 class="text-md font-semibold text-yellow-400 mb-2"
+            data-translate="event_title"
+            data-en="Special Event!"
+            data-es="¡Evento Especial!"
+            data-th="กิจกรรมพิเศษ!"
+            data-pt="Evento Especial!">
+          Evento Especial!
+        </h3>
+        <p class="text-sm text-gray-400 mb-4"
+           data-translate="event_desc"
+           data-en="Join the special Easter event in-game! Exclusive rewards."
+           data-es="¡Participa en el evento especial de Pascua! Recompensas exclusivas."
+           data-th="เข้าร่วมกิจกรรมอีสเตอร์พิเศษในเกม! ของรางวัลพิเศษ"
+           data-pt="Participe do evento especial de Páscoa! Recompensas exclusivas.">
+          Participe do evento especial de Páscoa no jogo! Recompensas
+          exclusivas.
+        </p>
+        <div class="flex items-center justify-between text-xs text-gray-500">
+          <span>12/05/2025</span>
+          <a href="#"
+             class="px-2 py-1 bg-gray-800/50 text-gray-300 hover:bg-gray-800 hover:text-white transition rounded"
+             data-translate="read_more">
+            Ver mais
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

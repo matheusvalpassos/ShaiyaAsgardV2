@@ -1,0 +1,89 @@
+{% load static %}
+<div id="register-form" class="max-w-md mx-auto p-6 text-white shadow-lg fade-in bg-[#12141f]" style="display:none; background-image: url('{% static 'img/block-top-bg.png' %}'); background-position: center top; background-repeat: no-repeat; background-size: contain;">
+  <div class="flex justify-between items-center flex-wrap mb-6 pb-6 border-b border-[#22252d] relative">
+    <span class="relative uppercase text-orange-500 text-xl block pl-6">Create Account
+      <span class="absolute bg-[url('{% static 'img/title-icon.png' %}')] bg-no-repeat w-7 h-7 left-[-5px] top-1/2 -translate-y-1/2 filter-[drop-shadow(0_0_10px_#ff2a00)] inline-block"></span>
+    </span>
+  </div>
+
+    <div class="mb-6 font-sans">
+        <h2 class="text-center text-xs text-white">For security, your password is saved and encrypted in our database using sha256.</h2>
+    </div>
+    
+    <form method="post" class="space-y-4">
+    {% if messages %}
+    <ul class="mb-4 text-sm">
+        {% for message in messages %}
+        <li class="
+            p-2 rounded text-center
+            {% if message.tags == 'error' %}
+                text-red-500 bg-red-900/30
+            {% elif message.tags == 'success' %}
+                text-green-500 bg-green-900/30
+            {% else %}
+                text-yellow-500 bg-yellow-900/30
+            {% endif %}
+        ">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="flex items-center px-3 py-2 bg-[#12141f] rounded shadow-inner border border-yellow-900 font-sans">
+        <svg class="w-4 h-4 text-yellow-400 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A6 6 0 0112 15a6 6 0 016.879 2.804M12 11a4 4 0 100-8 4 4 0 000 8z"/>
+        </svg>
+        <input type="text" name="username" placeholder="Username" class="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none" required/>
+    </div>
+
+    <div class="flex items-center px-3 py-2  bg-[#12141f] rounded shadow-inner border border-yellow-900 font-sans">
+        <svg class="w-4 h-4 text-yellow-400 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
+            </svg>
+        <input type="email" name="email" placeholder="Email" class="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none" required/>
+    </div>
+
+    <div class="text-xs font-sans text-gray-400 mb-2">
+    <p>Password must:</p>
+    <ul class="list-disc pl-4 italic">
+        <li>Be at least 8 characters long</li>
+        <li>Contain both letters and numbers</li>
+        <li>Match the confirmation field</li>
+    </ul>
+    </div>
+
+    <div class="flex items-center px-3 py-2  bg-[#12141f] rounded shadow-inner border border-yellow-900 font-sans">
+        <svg class="w-4 h-4 text-yellow-400 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+        </svg>
+        <input type="password" name="password" placeholder="Password" class="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none" required/>
+    </div>
+
+    <div class="flex items-center px-3 py-2  bg-[#12141f] rounded shadow-inner border border-yellow-900 font-sans">
+        <svg class="w-4 h-4 text-yellow-400 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+        </svg>
+        <input type="password" name="password_confirm" placeholder="Confirm Password" class="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none" required/>
+    </div>
+
+    <div class="font-sans cursor-pointer">
+        <button class="cursor-pointer group relative inline-flex items-center overflow-hidden rounded-sm bg-gradient-to-r from-green-600 to-green-800 px-6 py-1 text-white" type="button">
+          <span class="absolute -start-full transition-all group-hover:start-4">
+            <svg class="size-4 shadow-sm rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </span>
+          <span class="text-sm font-medium transition-all group-hover:ms-4">Register</span>
+        </button>
+    </div>
+    </form>
+
+    <div class="text-xs text-gray-400 text-center space-y-1 font-sans">
+        <div class="flex justify-between items-center flex-wrap mb-6 pb-6 border-b border-[#22252d] relative">
+            <span class="absolute w-7 h-7 left-[-5px] top-1/2 -translate-y-1/2 filter-[drop-shadow(0_0_10px_#ff2a00)] inline-block"></span>
+        </div>
+        <p>
+            • Already have an account?
+            <a href="#" class="text-yellow-400 hover:text-yellow-300 font-semibold">Sign in here!</a>
+        </p>
+        </div>
+</div>

@@ -1,0 +1,17 @@
+{% load static %}
+  <div class="border-t border-amber-500/50 dark:border-amber-900/50">
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <nav class="text-zinc-300 hidden md:flex text-center text-xs">
+        <!-- LINKS PRINCIPAIS -->
+        <div class="flex gap-10">
+          <a href="#" data-translate="home" data-en="Home"data-es="Inicio" data-th="หน้าหลัก" data-pt="Início" class="hover:underline uppercase hover:text-amber-300">Home</a>
+          <a href="#" data-translate="news" data-en="News"data-es="Noticias" data-th="ข่าว" data-pt="Notícias" class="hover:underline uppercase hover:text-amber-300">News</a>
+          <a href="#" data-translate="ranking" data-en="Ranking"data-es="Clasificación" data-th="การจัดอันดับ" data-pt="Ranking" class="hover:underline uppercase hover:text-amber-300">Ranking</a>
+        </div>
+      </nav>      
+        <img class="cursor-pointer h-15 w-auto hover:brightness-125 hover:scale-105" src="{% static 'img/logo.png' %}" alt="Shaiya Asgard Logotipo">  
+        <p class="mt-4 text-center text-sm text-gray-500 lg:mt-0 lg:text-right" data-translate="copyright" data-en="Copyright &copy; 2025. All rights reserved." data-es="Copyright &copy; 2025. Todos los derechos reservados." data-th="ลิขสิทธิ์ &copy; 2025. สงวนลิขสิทธิ์ทั้งหมด." data-pt="Copyright &copy; 2025. Todos os direitos reservados."> Copyright &copy; 2025. All rights reserved.</p>
+    </div>
+  </div>
+  <script src="{% static 'js/app.js' %}"></script>

@@ -1,0 +1,22 @@
+{% load static %}
+{% include 'components/head.html' %}  
+<body class="relative min-h-screen bg-[#060407] flex flex-col">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"> 
+    
+    <div class="absolute inset-0 -z-10 opacity-100 bg-geral"></div>
+    
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-0 char-image"></div>
+    
+    {% include 'components/navbar.html' %}
+
+    <main class="flex-grow min-h-[calc(100vh - 80px - 50px)]"> 
+    {% block 'home' %}{% endblock 'home' %}
+    </main>
+
+    <footer>
+        {% include 'components/footer.html' %}    
+    </footer>
+
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

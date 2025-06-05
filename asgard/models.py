@@ -30,8 +30,6 @@ class NewsUpdate(models.Model):
         verbose_name = "Noticia"
         verbose_name_plural = "Noticias"
         ordering = ["-published_date"]
-        managed = False
-        db_table = "asgard_newsupdate"
 
     def __str__(self):
         return self.title

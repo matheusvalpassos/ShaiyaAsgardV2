@@ -1,0 +1,58 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-image: url("/static/img/block-bottom-bg.png");
+    background-position: bottom;
+    background-blend-mode: screen;
+}
+
+.bg-geral {
+    background-image: url("/static/img/bg_geral.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.char-image {
+    background-image: url("/static/img/hero_1.png");
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    width: 50vw;
+    height: 87vh;
+    pointer-events: none;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: -10;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.char-image:hover {
+    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 1));
+    transform: scale(1.05);
+}

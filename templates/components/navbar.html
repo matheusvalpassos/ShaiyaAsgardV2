@@ -1,0 +1,74 @@
+{% load static %}
+<!-- NAVBAR SECTION -->
+<header class="w-full">
+    <div class="left-0 w-full h-full" style="">        
+        <div class="max-w-7xl mx-auto flex items-center justify-center-safe gap-10">
+            <!-- LOGOTIPO -->
+            <div>
+                <img class="cursor-pointer h-15 w-auto hover:brightness-125 hover:scale-105" src="{% static 'img/logo.png' %}" alt="Shaiya Asgard Logotipo">
+            </div>
+            <!-- DIVISOR -->
+            <div class="h-5 w-px opacity-10 bg-white"></div>
+            <!-- MENU DESKTOP -->
+                <nav class="text-zinc-300 hidden md:flex text-center text-xs">
+                    <!-- LINKS PRINCIPAIS -->
+                    <div class="flex gap-10">
+                        <a href="#" 
+                            data-translate="home" 
+                            data-en="Home"
+                            data-es="Inicio" 
+                            data-th="หน้าหลัก" 
+                            data-pt="Início" 
+                            class="hover:underline uppercase hover:text-amber-300">
+                            Home
+                            </a>
+
+                            <a href="#" 
+                            data-translate="news" 
+                            data-en="News"
+                            data-es="Noticias" 
+                            data-th="ข่าว" 
+                            data-pt="Notícias" 
+                            class="hover:underline uppercase hover:text-amber-300">
+                            News
+                            </a>
+
+                            <a href="#" 
+                            data-translate="ranking" 
+                            data-en="Ranking"
+                            data-es="Clasificación" 
+                            data-th="การจัดอันดับ" 
+                            data-pt="Ranking" 
+                            class="hover:underline uppercase hover:text-amber-300">
+                            Ranking
+                            </a>
+                    </div>
+                </nav>
+                <!-- DIVISOR -->
+            <div class="h-5 w-px opacity-10 bg-white"></div>
+            {% include 'components/server_status.html' %}
+            <!-- DIVISOR -->
+            <div class="h-5 w-px opacity-10 bg-white"></div>
+            
+            <!-- 
+            <div class="relative inline-block group" id="language-dropdown">
+              <button id="language-btn" class="w-5 h-5 rounded-full overflow-hidden ring-2 ring-gray-300 hover:ring-yellow-500 transition-all">
+                <img id="selected-flag" src="https://flagcdn.com/w40/gb.png " alt="EN" class="object-cover w-full h-full">
+              </button>-->
+
+  <!-- DROPDOWN -->
+  <div class="absolute right-0 top-full mt-2 bg-white border border-gray-200 rounded-lg shadow-xl z-50 hidden group-focus-within:block">
+    <ul class="grid gap-2 p-2">
+      <!-- Inglês -->
+      <li><button data-lang="en" class="lang-option w-5 h-5 rounded-full overflow-hidden hover:ring-2 ring-blue-500"><img src="https://flagcdn.com/w40/gb.png " alt="EN" class="object-cover w-full h-full"></button></li>
+      <!-- Espanhol -->
+      <li><button data-lang="es" class="lang-option w-5 h-5 rounded-full overflow-hidden hover:ring-2 ring-blue-500"><img src="https://flagcdn.com/w40/es.png " alt="ES" class="object-cover w-full h-full"></button></li>
+      <!-- Tailandês -->
+      <li><button data-lang="th" class="lang-option w-5 h-5 rounded-full overflow-hidden hover:ring-2 ring-blue-500"><img src="https://flagcdn.com/w40/th.png " alt="TH" class="object-cover w-full h-full"></button></li>
+      <!-- Português Brasil -->
+      <li><button data-lang="pt-br" class="lang-option w-5 h-5 rounded-full overflow-hidden hover:ring-2 ring-blue-500"><img src="https://flagcdn.com/w40/br.png " alt="PT" class="object-cover w-full h-full"></button></li>
+    </ul>
+  </div>
+</div>
+    <script src="{% static 'js/app.js' %}"></script>
+</header>

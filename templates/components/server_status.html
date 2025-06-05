@@ -1,0 +1,16 @@
+{% load static %}
+<section id="sidebox_status" class="sidebox">
+    <div class="flex flex-col items-center uppercase font-semibold">
+        <span class="text-zinc-400 text-[10px]">Server Status:</span>
+        <div class="flex items-center text-xs">
+            {% if status == "offline" %}
+                <img src="{% static 'img/offline-server.png' %}" alt="Offline" class="w-6 h-6 animate-pulse" />
+                <span class="text-red-400">Offline</span>
+            {% else %}
+                <img src="{% static 'img/online-server.png' %}" alt="Online" class="w-6 h-6 animate-pulse" />
+                <span class="text-green-400">Online</span>
+            {% endif %}
+        </div>
+        <script src="{% static 'js/app.js' %}"></script>
+    </div>
+</section>

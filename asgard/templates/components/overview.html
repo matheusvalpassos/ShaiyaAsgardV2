@@ -1,0 +1,339 @@
+{% load static %}
+<div class="bg-[#12141f] shadow-[0_10px_15px_4px_rgba(0,0,0,0.3)] p-4 mx-auto text-gray-300" style="background-image: url('{% static 'img/block-top-bg.png' %}'),url('{% static 'img/block-bottom-bg.png' %}');background-position: center top, center bottom;background-repeat: no-repeat, no-repeat; ">
+  <div class="text-center mt-4">
+    <!-- Cabeçalho -->
+    <div class="flex justify-between items-center flex-wrap mb-6 pb-6 border-b border-[#22252d] relative">
+      <span class="relative uppercase text-orange-500 text-xl block pl-6">SERVER STATISTICS
+        <span class="absolute bg-[url('{% static 'img/title-icon.png' %}')] bg-no-repeat w-7 h-7 left-[-5px] top-1/2 -translate-y-1/2 filter-[drop-shadow(0_0_10px_#ff2a00)] inline-block"></span>
+      </span>
+    </div>
+
+    <!-- Blocos Superiores -->
+    <div class="my-2 mx-2 gap-2 flex justify-center">
+      <div class="bg-gray-800/30 p-3 w-24 h-24 flex flex-col items-center justify-center rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-800/50">
+        <div class="text-xl mb-1 animate-bounce">🎮</div>
+        <p class="text-[0.6rem] text-gray-400">Game Version</p>
+        <p class="text-xs text-blue-400 font-bold animate-pulse">Episode 4</p>
+      </div>
+
+      <div
+        class="bg-gray-800/30 p-3 w-24 h-24 flex flex-col items-center justify-center rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-800/50"
+      >
+        <div class="text-xl mb-1 animate-wiggle">💀</div>
+        <p class="text-[0.6rem] text-gray-400">Kill Rate</p>
+        <p class="text-xs text-red-400 font-bold">x1</p>
+      </div>
+
+      <div
+        class="bg-gray-800/30 p-3 w-24 h-24 flex flex-col items-center justify-center rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-800/50"
+      >
+        <div class="text-lg mb-1 animate-ping">💻</div>
+        <p class="text-[0.6rem] text-gray-400">Players Online</p>
+        <p class="text-xs text-green-400 font-bold">10</p>
+      </div>
+    </div>
+
+    <!-- Status da Guerra -->
+    <div class="mx-2 my-4 flex justify-center">
+      <div
+        class="bg-gray-800/30 w-full max-w-[500px] p-4 rounded-lg transition-all duration-300 hover:bg-gray-800/50 hover:shadow-lg"
+      >
+        <div class="flex flex-col space-y-3">
+          <div class="flex items-center justify-center gap-2 mb-2">
+            <span class="text-sm text-amber-400">⚔️ War Status</span>
+            <span
+              class="rounded-full bg-gray-700 px-2 py-1 text-xs text-amber-400"
+            >
+              Total Players: <span id="total-war-players">10</span>
+            </span>
+          </div>
+
+          <!-- Barra de Progresso -->
+          <div
+            class="w-full h-3 bg-gray-700 rounded-full overflow-hidden relative group"
+          >
+            <div
+              class="h-full war-bar transition-all duration-500"
+              style="width: calc(var(--aol-percent) + var(--uof-percent))"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-red-500/30"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Facções -->
+          <div class="flex justify-between items-center px-2">
+            <div
+              class="flex items-center gap-2 group-hover:scale-105 transition-transform"
+            >
+              <img
+                src="{% static 'img/icons/faction/aol.png' %}"
+                alt="AOL"
+                class="w-6 h-6 animate-pulse"
+              />
+              <span class="text-blue-400 text-sm font-bold">
+                AOL: <span id="aol-players">3</span>
+              </span>
+            </div>
+
+            <div
+              class="flex items-center gap-2 group-hover:scale-105 transition-transform"
+            >
+              <span class="text-red-400 text-sm font-bold">
+                UOF: <span id="uof-players">7</span>
+              </span>
+              <img
+                src="{% static 'img/icons/faction/uof.png' %}"
+                alt="UOF"
+                class="w-6 h-6 animate-pulse"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Relógio Server -->
+    <div class="mx-2 my-4 flex justify-center">
+      <div
+        class="bg-gray-800/30 w-full max-w-[320px] p-4 rounded-lg transition-all duration-500 hover:bg-gray-800/50 group hover:shadow-xl"
+      >
+        <div class="flex flex-col items-center space-y-2">
+          <div
+            class="text-2xl mb-2 transition-transform duration-500 group-hover:rotate-[360deg]"
+          >
+            🕒
+          </div>
+          <div class="font-mono flex items-center gap-2 relative">
+            <span
+              class="text-3xl font-bold text-amber-400 animate-glow"
+              id="server-time"
+              >00:00:00</span
+            >
+          </div>
+          <div
+            class="w-full h-1.5 bg-gray-700 mt-2 rounded-full overflow-hidden"
+          >
+            <div
+              id="seconds-progress"
+              class="h-full bg-gradient-to-r from-amber-500 to-yellow-500 transition-all duration-1000 ease-out"
+            ></div>
+          </div>
+          <div class="flex items-center gap-2 mt-2">
+            <p class="text-[0.6rem] text-gray-400">SERVER TIME</p>
+            <span
+              class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs text-amber-900 animate-pulse"
+              >Live</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contador Regressivo -->
+    <div class="mx-2 my-4 flex justify-center">
+      <div
+        class="bg-gray-800/30 w-full max-w-[500px] p-4 rounded-lg transition-all duration-300 hover:bg-gray-800/50 hover:shadow-lg"
+      >
+        <div class="flex flex-col items-center space-y-2">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-sm text-amber-400">⏳ Open in</span>
+            <span
+              class="rounded-full bg-amber-100 px-2 py-0.5 text-[0.6rem] text-amber-900 font-bold"
+              >19/05/2025</span
+            >
+          </div>
+
+          <div class="grid grid-cols-4 gap-1 w-full text-center">
+            <div
+              class="bg-amber-900/20 my-1 mx-1 rounded-lg border border-amber-900/30 hover:scale-105 transition-all"
+            >
+              <div class="text-2xl font-bold text-amber-500" id="elapsed-days">
+                0
+              </div>
+              <div class="text-[0.6rem] text-amber-400 uppercase">DAYS</div>
+            </div>
+
+            <div
+              class="bg-amber-800/20 my-1 mx-1 rounded-lg border border-amber-900/30 hover:scale-105 transition-all"
+            >
+              <div class="text-2xl font-bold text-amber-400" id="elapsed-hours">
+                00
+              </div>
+              <div class="text-[0.6rem] text-amber-400/80 uppercase">HOURS</div>
+            </div>
+
+            <div
+              class="bg-amber-700/20 my-1 mx-1 rounded-lg border border-amber-900/30 hover:scale-105 transition-all"
+            >
+              <div
+                class="text-2xl font-bold text-amber-300"
+                id="elapsed-minutes"
+              >
+                00
+              </div>
+              <div class="text-[0.6rem] text-amber-400/60 uppercase">MIN.</div>
+            </div>
+
+            <div
+              class="bg-amber-600/20 my-1 mx-1 rounded-lg border border-amber-900/30 hover:scale-105 transition-all"
+            >
+              <div
+                class="text-2xl font-bold text-amber-200"
+                id="elapsed-seconds"
+              >
+                00
+              </div>
+              <div class="text-[0.6rem] text-amber-400/40 uppercase">SEC.</div>
+            </div>
+          </div>
+
+          <div
+            class="w-full h-1 bg-amber-900/30 mt-2 rounded-full overflow-hidden"
+          >
+            <div
+              id="elapsed-progress"
+              class="h-full bg-gradient-to-r from-amber-500 to-yellow-500"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script>
+      // Configurações
+      const startDate = new Date("2025-05-19T00:00:00");
+      let aolPlayers = 3;
+      let uofPlayers = 7;
+
+      // Atualizar Relógio
+      function updateServerTime() {
+        const now = new Date();
+        document.getElementById("server-time").textContent =
+          now.toLocaleTimeString("en-GB", { hour12: false });
+
+        const seconds = now.getSeconds();
+        const progressBar = document.getElementById("seconds-progress");
+        progressBar.style.width = `${(seconds / 60) * 100}%`;
+      }
+
+      // Atualizar Contador
+      function updateElapsedTime() {
+        const now = new Date();
+        const diff = now - startDate;
+
+        const seconds = Math.floor(diff / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        document.getElementById("elapsed-days").textContent = days;
+        document.getElementById("elapsed-hours").textContent = String(
+          hours % 24
+        ).padStart(2, "0");
+        document.getElementById("elapsed-minutes").textContent = String(
+          minutes % 60
+        ).padStart(2, "0");
+        document.getElementById("elapsed-seconds").textContent = String(
+          seconds % 60
+        ).padStart(2, "0");
+
+        const progressBar = document.getElementById("elapsed-progress");
+        progressBar.style.width = `${((seconds % 60) / 60) * 100}%`;
+      }
+
+      // Atualizar Guerra
+      function updateWarStatus() {
+        const total = aolPlayers + uofPlayers;
+        const aolPercent = (aolPlayers / total) * 100;
+        const uofPercent = (uofPlayers / total) * 100;
+
+        document.documentElement.style.setProperty(
+          "--aol-percent",
+          `${aolPercent}%`
+        );
+        document.documentElement.style.setProperty(
+          "--uof-percent",
+          `${uofPercent}%`
+        );
+
+        document.getElementById("total-war-players").textContent = total;
+        document.getElementById("aol-players").textContent = aolPlayers;
+        document.getElementById("uof-players").textContent = uofPlayers;
+      }
+
+      // Iniciar
+      window.addEventListener("load", () => {
+        updateServerTime();
+        updateElapsedTime();
+        updateWarStatus();
+        setInterval(updateServerTime, 1000);
+        setInterval(updateElapsedTime, 1000);
+      });
+    </script>
+
+    <!-- Estilos -->
+    <style>
+      :root {
+        --aol-percent: 30%;
+        --uof-percent: 70%;
+      }
+
+      .animate-glow {
+        animation: glow 2s ease-in-out infinite;
+      }
+
+      .animate-wiggle {
+        animation: wiggle 1s ease-in-out infinite;
+      }
+
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      .war-bar {
+        background: linear-gradient(
+          to right,
+          #2563eb var(--aol-percent),
+          #dc2626 var(--uof-percent)
+        );
+        box-shadow: 0 0 15px rgba(37, 99, 235, 0.3),
+          0 0 15px rgba(220, 38, 38, 0.3);
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          text-shadow: 0 0 5px rgba(245, 158, 11, 0.3);
+        }
+        50% {
+          text-shadow: 0 0 20px rgba(245, 158, 11, 0.7);
+        }
+      }
+
+      @keyframes wiggle {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(5deg);
+        }
+        75% {
+          transform: rotate(-5deg);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+    </style>
+  </div>
+</div>

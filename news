@@ -1,0 +1,143 @@
+<!-- FRAME - Latest News -->
+      <div class="relative lg:row-span-2 h-full">
+        <div
+          class="absolute inset-px rounded-lg bg-dark max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"
+        ></div>
+        <div
+          class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)] transform transition-transform duration-500 hover:scale-[1.02]"
+        >
+          <div
+            class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0 bg-cover bg-no-repeat bg-center brightness-70 h-full"
+            style="
+              background-image: url('{% static 'img/background_footer.png' %}');
+            "
+          >
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+            >
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p
+                  class="mt-2 text-lg font-medium tracking-tight text-white max-lg:text-center"
+                >
+                  📢 Latest News
+                </p>
+                <p
+                  class="mt-2 mb-10 max-w-lg text-sm font-normal text-orange-400 max-lg:text-center"
+                >
+                  Stay informed about server changes
+                </p>
+              </div>
+              <!-- News Content -->
+              <div class="flex-1 px-8 pb-8 sm:px-1 space-y-4 overflow-y-auto">
+                {% for news in news_updates %}
+                <div
+                  class="group relative p-4 rounded-lg transition-all bg-black/50 hover:bg-amber-900/20"
+                >
+                  <!-- Label dinâmico -->
+                  {% if news.label == "FIX" %}
+                  <span
+                    class="mb-2 inline-flex items-center bg-red-800 text-stone-50 text-xs font-medium mr-2 pl-1.5 pr-2 rounded-full py-1"
+                  >
+                    <svg
+                      width="auto"
+                      height="10"
+                      viewBox="0 0 16 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mr-1"
+                    >
+                      <path
+                        d="M7.99998 4.46424V8.62133M7.99998 10.6999V10.7345M3.19979 12.7784H12.8002C13.8669 12.7784 14.4002 12.7784 14.6002 12.432C14.8002 12.0856 14.5336 11.6237 14.0002 10.6999L9.20003 2.3857C8.66667 1.4619 8.4 1 7.99998 1C7.59996 1 7.33329 1.4619 6.79993 2.3857L1.99974 10.6999C1.46639 11.6237 1.19971 12.0856 1.39972 12.432C1.59973 12.7784 2.13308 12.7784 3.19979 12.7784Z"
+                        stroke="white"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    UPDATES
+                  </span>
+                  {% elif news.label == "NEW" %}
+                  <span
+                    class="mb-2 inline-flex items-center bg-amber-600 text-stone-50 text-xs font-medium mr-2 pl-1.5 pr-2 rounded-full py-1"
+                  >
+                    <svg
+                      width="auto"
+                      height="10"
+                      viewBox="0 0 16 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mr-1"
+                    >
+                      <path
+                        d="M7.99998 4.46424V8.62133M7.99998 10.6999V10.7345M3.19979 12.7784H12.8002C13.8669 12.7784 14.4002 12.7784 14.6002 12.432C14.8002 12.0856 14.5336 11.6237 14.0002 10.6999L9.20003 2.3857C8.66667 1.4619 8.4 1 7.99998 1C7.59996 1 7.33329 1.4619 6.79993 2.3857L1.99974 10.6999C1.46639 11.6237 1.19971 12.0856 1.39972 12.432C1.59973 12.7784 2.13308 12.7784 3.19979 12.7784Z"
+                        stroke="white"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    NEWS
+                  </span>
+                  {% elif news.label == "EVENT" %}
+                  <span
+                    class="mb-2 inline-flex items-center bg-violet-800 text-stone-50 text-xs font-medium mr-2 pl-1.5 pr-2 rounded-full py-1"
+                  >
+                    <svg
+                      width="auto"
+                      height="10"
+                      viewBox="0 0 16 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mr-1"
+                    >
+                      <path
+                        d="M7.99998 4.46424V8.62133M7.99998 10.6999V10.7345M3.19979 12.7784H12.8002C13.8669 12.7784 14.4002 12.7784 14.6002 12.432C14.8002 12.0856 14.5336 11.6237 14.0002 10.6999L9.20003 2.3857C8.66667 1.4619 8.4 1 7.99998 1C7.59996 1 7.33329 1.4619 6.79993 2.3857L1.99974 10.6999C1.46639 11.6237 1.19971 12.0856 1.39972 12.432C1.59973 12.7784 2.13308 12.7784 3.19979 12.7784Z"
+                        stroke="white"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    EVENT
+                  </span>
+                  {% else %}
+                  <span
+                    class="mb-2 inline-flex items-center bg-emerald-600 text-stone-50 text-xs font-medium mr-2 pl-1.5 pr-2 rounded-full py-1"
+                  >
+                    <svg
+                      width="auto"
+                      height="10"
+                      viewBox="0 0 16 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mr-1"
+                    >
+                      <path
+                        d="M7.99998 4.46424V8.62133M7.99998 10.6999V10.7345M3.19979 12.7784H12.8002C13.8669 12.7784 14.4002 12.7784 14.6002 12.432C14.8002 12.0856 14.5336 11.6237 14.0002 10.6999L9.20003 2.3857C8.66667 1.4619 8.4 1 7.99998 1C7.59996 1 7.33329 1.4619 6.79993 2.3857L1.99974 10.6999C1.46639 11.6237 1.19971 12.0856 1.39972 12.432C1.59973 12.7784 2.13308 12.7784 3.19979 12.7784Z"
+                        stroke="white"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    NEWS
+                  </span>
+                  {% endif %}
+                  <div class="space-y-2">
+                    <h3 class="text-sm font-semibold text-white pr-12 truncate">
+                      {{ news.title }}
+                    </h3>
+                    <p class="text-xs text-gray-300 line-clamp-3">
+                      {{ news.content|safe }}
+                    </p>
+                    <p class="text-xs text-amber-400/80 mt-2">
+                      📅 {{ news.published_date|date:"M d, Y - H:i" }}
+                    </p>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg ring-1 ring-white/5 max-lg:rounded-t-[2rem]"
+        ></div>
+      </div>
+      <!-- END FRAME - Latest News -->
